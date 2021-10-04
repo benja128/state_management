@@ -6,6 +6,8 @@ class PropertyNotifer with ChangeNotifier {
   Map _map = Map<int, int>();
   Map get map => _map;
 
+  // initialisere Map
+  // 'i' starter fra 1, da key bruges til sekunder i dette tilfælde
   void init() {
     Map newMap = Map<int, int>();
     for (int i = 1; i <= 10; i++) {
@@ -25,6 +27,8 @@ class PropertyNotifer with ChangeNotifier {
     notifyListeners();
   }
 
+  // Kører Modulus på i (som er key i map), hvis resultatet er 0,
+  // tæller den én op og notifier lytterne
   void _counter() {
     for (int i = 1; i <= _map.length; i++) {
       if (time % i == 0) {

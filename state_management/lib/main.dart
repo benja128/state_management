@@ -45,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
   }
 
+  // Timer som tæller til 30. Hvert tick opdateres propertyNotifer
   void _startTimer() {
     const oneSec = const Duration(seconds: 1);
     _timer = new Timer.periodic(
@@ -66,7 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    //Oprettelse af Provider ud fra PropertyNotifier
     final PropertyNotifer notifer = Provider.of<PropertyNotifer>(context);
+    //Udfylder Map, hvis tomt
     if (notifer.map.isEmpty) {
       notifer.init();
     }
